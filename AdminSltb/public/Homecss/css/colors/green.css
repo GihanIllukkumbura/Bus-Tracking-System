@@ -1,0 +1,12 @@
+.btn-default, .divider-dashed, .divider-circle:before, .divider-circle:after, .preloader:before, .preloader:after, .fixed-header .navbar-nav .nav-link:before, .header-nav .navbar-nav>li .sub-menu li>a:after, .header-nav .navbar-nav > li .sub-menu li > a:after, .fixed-header.header-nav .navbar-nav .nav-btn.nav-link, .header-nav .navbar-nav .nav-btn.nav-link:hover, .progress-bars .progress .progress-bar, .process-circle, .process-circle:before, .process-item:hover .icon-outer, .light-icon li a:hover, .swiper-pagination-bullet-active, .post-header a span.day, .single-widget ul li:before, .page-item.active .page-link, .light-icon.share-icons li a:hover, .card-info, a.btn.btn-readmore:hover {
+  background-color: #38C695;
+}
+.btn-default-outline{
+  background-color: transparent;
+}
+.btn-default, .divider-circle, .process-wrap, .light-icon li a:hover, .testimonial-content blockquote, .contact-form-box input:focus, .contact-form-box textarea:focus, .page-item.active .page-link, .single-blog-post blockquote, .card-info{
+  border-color: #38C695;
+}
+.video-btn button:hover, .lightbox-icons a:hover, .lightbox-icons button:hover, .content-area a:hover, .process-item .icon-outer, .donor-box a:hover, .asset-box i, .post-header a:hover, .post-info a:hover, .post-content a:hover, .address-wrap ul li a:hover, .address-wrap ul.social-icons li a, .widget-logo:hover, .single-widget ul li a:hover, .copyright-text a:hover, .breadcrumb-item a:hover, .post-meta ul li a:hover, .single-blog-post a:hover h2, .single-blog-post a{
+  color: #38C695;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Sign Up page</title>
+
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/style.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <style>
+    /* Specific styles for the sign-up page */
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://i0.wp.com/reviewsrilanka.com/wp-content/uploads/2020/09/CTB-bus-transport.jpg?fit=1000%2C573&ssl=1');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      display: flex;
+      justify-content: flex-end; /* Aligns content to the right */
+      align-items: center;
+    }
+
+    .login-container {
+      width: 300px;
+      height: 540px;
+      background-color: rgba(255, 255, 255, 0.4); /* 60% transparent white background */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      margin-right: 50px; /* Adds space between the form and the right edge */
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form input {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    p {
+      margin-top: 10px;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <h2>Sign up</h2>
+    <form action='/register' method="post">
+      <% if (typeof error !== 'undefined' && error !== null) { %>
+        <p><%= error %></p>
+      <% } %>
+
+      <div>
+        <input type="text" id="username" name="username" placeholder="Name" required>
+      </div>
+
+      <div>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+      </div>
+
+      <div>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+      </div>
+
+      <div>
+        <input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password" required>
+      </div>
+
+      <div>
+        <input type="submit" value="Register" class="button">
+      </div>
+
+      <p>Already Registered? <a href='/login'>Login here</a></p>
+    </form>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+/* Reset some default styles */
+body, h2,p,ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Global Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Fira Sans", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+h1{
+  font-size: 50px;
+}
+
+header {
+  background-color: #4446e4;
+  color: #fff;
+  padding: 1rem;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 0.5rem; /* Adjust the spacing between tabs */
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px; /* Adjust the position of the underline */
+  left: 50%; /* Position the underline from the center */
+  width: 0;
+  height: 2px;
+  background-color: transparent;
+  transition: width 0.3s ease; /* Animate width change */
+  transform: translateX(-50%); /* Center the underline */
+}
+
+.nav-links a:hover::after {
+  background-color: #fff; /* Color of the underline on hover */
+  width: 50%;
+}
+
+.main {
+  padding: 2rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 150px;
+  background-color: #f4f4f4;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  margin-top: 1rem;
+  background-color: #4446e4;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+}
+
+.feature {
+  flex-basis: 30%;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0 0.5rem;
+}
+
+/* drop down */
+
+/* Existing styles */
+
+/* Dropdown menu styles */
+/* Existing styles */
+
+/* Dropdown menu styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 120px; /* Adjusted width */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  font-size: 14px; /* Reduced font size */
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 8px 12px; /* Adjusted padding */
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #d8d8d8;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Other styles... */
+.profile-image {
+  margin-right: 1rem; /* Adjust margin as needed */
+  border-radius: 50%; /* Create a circular shape */
+  overflow: hidden; /* Hide image overflow */
+  width: 40px; /* Adjust width and height for desired size */
+  height: 40px;
+}
+
+.profile-image img {
+  width: 100%; /* Ensure the image fills its container */
+  height: auto; /* Preserve aspect ratio */
+}
+
+/* Style for the active tab */
+.active {
+  /* Example background color for the active tab */
+  color: #fff; /* Example text color for the active tab */
+  /* Add any other styles to differentiate the active tab */
+}
+
+/* Hover effect for navigation links */
+.nav-links li a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover style for the default selected tab 
+.active:hover {
+   /* Example background color for the hovered active tab */
+  /* Additional hover styles */
+
+/* Other styles... */
+.hero {
+  /* Add the background image URL and set other background properties as needed */
+  background: url('https://marvel-b1-cdn.bc0a.com/f00000000274675/www.healthwise.org/dotOrgImages/images/about/HIMSS22PatientEdblog-1.jpg') center/cover no-repeat;
+  /* Add additional styles if necessary */
+  color: #fff; /* Set text color to white, for example */
+}
+
+.footer{
+  
+  background-color: #4446e4;
+  margin-top: 50px;
+}

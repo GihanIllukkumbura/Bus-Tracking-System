@@ -1,0 +1,70 @@
+/* home.css */
+
+/* Basic reset */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+table {
+  width: 80%;
+  margin: -5px auto;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+thead {
+  background-color: #225edf;
+  color: #fff;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+/* Alternate row colors */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Hover effect on rows */
+tbody tr:hover {
+  background-color: #ddd;
+}
+
+/* Borders */
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Centering text for the first column */
+td:first-child, th:first-child {
+  text-align: center;
+}
+
+/* Colors for table headings */
+th:nth-child(1) {
+  background-color: #225edf; /* Cadet Blue */
+}
+
+th:nth-child(2) {
+  background-color: #225edf; /* Light Salmon */
+}
+
+th:nth-child(3) {
+  background-color: #225edf; /* Pale Green */
+}
+
+th:nth-child(4) {
+  background-color: #225edf; /* Light Sky Blue */
+}

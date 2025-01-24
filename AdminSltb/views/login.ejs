@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <link rel="stylesheet" href="/style.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://i0.wp.com/reviewsrilanka.com/wp-content/uploads/2020/09/CTB-bus-transport.jpg?fit=1000%2C573&ssl=1');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh; /* Ensures the body height covers the full viewport */
+      display: flex;
+      justify-content: flex-end; /* Aligns the login container to the right */
+      align-items: center; /* Centers the login container vertically */
+    }
+
+    .login-container {
+      width: 300px;
+      height: 540px;
+      background-color: rgba(255, 255, 255, 0.4); /* 60% transparent white background */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      margin-right: 50px; /* Adds space from the right edge */
+    }
+
+    .logoImg {
+      max-width: 100%;
+      height: auto;
+      
+    }
+
+    form.login {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form.login input {
+      margin: 10px 0;
+      
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form.login .button {
+      background-color: #df2222;
+      color: white;
+      border: none;
+      
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    form.login .button:hover {
+      background-color: #df2222;
+    }
+
+    p {
+      margin-top: 10px;
+    }
+
+    a {
+      color: #df2222;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <title>Login</title>
+</head>
+
+<body>
+  <div class="login-container">
+    <img class="logoImg" src="https://srilankamirror.com/wp-content/uploads/2023/10/SLTB_Logo_1200px_23_10_08-1000x600.jpg" alt="Logo">
+    <h1>Welcome to the SLTB</h1>
+    <h3></h3>
+    <form class="login" action='/login' method="POST">
+      
+      <% if (typeof error !== 'undefined' && error !== null) { %>
+        <p><%= error %></p>
+      <% } %>
+      <input type="email" id="email" name="email" placeholder="Email" required>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+      <input type="submit" value="Login" class="button">
+      <p>Do not have an account?<a href='/register'> Sign up</a></p>
+    </form>
+  </div>
+</body>
+
+</html>

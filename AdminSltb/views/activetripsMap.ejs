@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Active Trips Map</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <style>
+    #map {
+      height: 600px;
+      width: 100%;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 350px;
+      height: 100%;
+      background-color: #f8f9fa;
+      border-left: 1px solid #dee2e6;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .trip-details {
+      display: none;
+    }
+    .trip-details.active {
+      display: block;
+    }
+    .trip-image {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+    .card {
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Navbar with Back button -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+      <a href="/" class="btn btn-outline-primary" >
+        <i class="bi bi-arrow-left"></i> Back
+      </a>
+      
+      <a class="navbar-brand mx-auto" href="#">Active Trips Map</a>
+    </div>
+  </nav>
+
+  <div class="container-fluid mt-3">
+    <div class="row">
+      <!-- Map Section -->
+      <div class="col-lg-9">
+        <div id="map" class="shadow-sm border rounded"></div>
+      </div>
+
+      <!-- Sidebar Section -->
+      <div class="col-lg-3 sidebar">
+        <h5 class="text-center border-bottom pb-3 mb-3">Trip Details</h5>
+        <div id="tripDetails" class="trip-details">
+          <div class="card shadow-sm mb-4">
+            <div class="card-body">
+              <img id="tripImage" class="trip-image rounded shadow-sm" src="" alt="Vehicle Image">
+              <h6><strong>Username:</strong> <span id="tripUsername" class="text-secondary"></span></h6>
+              <h6><strong>SLTB Number:</strong> <span id="tripSLTBNumber" class="text-secondary"></span></h6>
+              <h6><strong>Start Address:</strong> <span id="tripStartAddress" class="text-secondary"></span></h6>
+              <h6><strong>Destination Address:</strong> <span id="tripDestinationAddress" class="text-secondary"></span></h6>
+              <h6><strong>Distance:</strong> <span id="tripDistance" class="text-secondary"></span> km</h6>
+              <h6><strong>Start Time:</strong> <span id="tripStartTime" class="text-secondary"></span></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script>
+    // Initialize the map
+    var map = L.map('map').setView([7.8731, 80.7718], 7); // Centered on Sri Lanka
+  
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+  
+    // Trips data from the server
+    var trips = <%- JSON.stringify(trips) %>;  // Make sure the trips array is passed from the server
+  
+    // Create a bounds object to adjust the view to fit all markers
+    var bounds = new L.LatLngBounds();
+  
+    // Iterate over each trip and place a marker on the map
+    trips.forEach(trip => {
+      var marker = L.marker([trip.latitude, trip.longitude]).addTo(map);
+  
+      // Extend bounds to include this marker's position
+      bounds.extend(marker.getLatLng());
+  
+      // On marker click, show trip details
+      marker.on('click', function() {
+        document.getElementById('tripDetails').classList.add('active');
+        document.getElementById('tripUsername').innerText = trip.username;
+        document.getElementById('tripSLTBNumber').innerText = trip.sltbnumber;
+        document.getElementById('tripStartAddress').innerText = trip.startAddress;
+        document.getElementById('tripDestinationAddress').innerText = trip.destinationAddress;
+        document.getElementById('tripDistance').innerText = parseFloat(trip.distance).toFixed(3);
+  
+        // Format and display the date from Firestore Timestamp
+        const timestampInMillis = trip.startTime._seconds * 1000 + trip.startTime._nanoseconds / 1000000;
+        const date = new Date(timestampInMillis);
+        document.getElementById('tripStartTime').innerText = date.toLocaleString();
+  
+        // Display the image
+        document.getElementById('tripImage').src = trip.imageUrl;
+      });
+    });
+  
+    // Adjust the map to fit all the markers
+    if (!bounds.isEmpty()) {
+      map.fitBounds(bounds);
+    }
+  </script>
+</body>
+</html>
